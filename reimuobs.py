@@ -273,6 +273,8 @@ def run17():
     
     
 def main():
+    print('')
+    print('[ReimuOBS] Startup... ver.1.1.5 ')
     executors = {
         "default": ThreadPoolExecutor(50),
     }
