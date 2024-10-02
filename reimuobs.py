@@ -133,11 +133,10 @@ def runkill():
             playlistId=shoplist
         ))
     responses = request['items']  
-    for rsp in responses:
-        safexe(youtube.playlistItems().delete(
-            id=rsp['id']
-        ))
-    
+    for x in machinelist:
+        for rsp in responses:
+            if x['title'] in brod['snippet']['title'] and settings.shopStr in brod['snippet']['title']:
+                safexe(youtube.playlistItems().delete(id=rsp['id']))
 
 def killprocess():
     pidself = os.getpid()
