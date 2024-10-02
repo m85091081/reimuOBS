@@ -29,7 +29,6 @@ api_version = "v3"
 client_secrets_file = "client.json"
 OBS = "obs"
 PYTHON = "python.exe"
-shoplist = settings.shopPlaylist
 machinelist = settings.cabinetList
 youtube = None
     
@@ -127,16 +126,6 @@ def runkill():
             safexe(youtube.playlistItems().delete(
                 id=rsp['id']
             ))
-    request = safexe(youtube.playlistItems().list(
-            part="snippet,contentDetails",
-            maxResults=50,
-            playlistId=shoplist
-        ))
-    responses = request['items']  
-    for x in machinelist:
-        for rsp in responses:
-            if x['title'] in brod['snippet']['title'] and settings.shopStr in brod['snippet']['title']:
-                safexe(youtube.playlistItems().delete(id=rsp['id']))
 
 def killprocess():
     pidself = os.getpid()
@@ -232,19 +221,6 @@ def runstartBrod():
                   }
                 }
             ))
-        safexe(youtube.playlistItems().insert(
-                part="snippet",
-                body={
-                  "snippet": {
-                    "playlistId": shoplist,
-                    "position": 0,
-                    "resourceId": {
-                      "kind": "youtube#video",
-                      "videoId": responses['id']
-                    }
-                  }
-                }
-            )) 
         
     
 def runstart():
