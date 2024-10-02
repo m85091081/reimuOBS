@@ -102,6 +102,7 @@ def stoplBmaimai():
 
 def runkill():
     print('[INFO] Stop all liveBroadcasts and off OBS/ONE')
+    killprocess()
     global youtube
     gotyoutube()
     needrestartbrod = youtube.liveBroadcasts().list(part="id,snippet,contentDetails,status",
@@ -135,7 +136,6 @@ def runkill():
         safexe(youtube.playlistItems().delete(
             id=rsp['id']
         ))
-    killprocess()
     
 
 def killprocess():
