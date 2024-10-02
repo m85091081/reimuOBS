@@ -250,7 +250,8 @@ def run17():
     
 def main():
     print('')
-    print('[ReimuOBS] Startup... ver.1.1.5 ')
+    print('[ReimuOBS] Startup... ver 1.1.8  ')
+    print('[ReimuOBS] CHANGE-LOG : remove shop playlist update.')
     executors = {
         "default": ThreadPoolExecutor(50),
     }
