@@ -66,6 +66,7 @@ def gotyoutube():
 
     
 def safexe(func):
+    retry = 10
     while 1 :
         try:
             resp = func.execute()
@@ -73,6 +74,9 @@ def safexe(func):
         except HttpError as e:
             print('YouTube say HttpError , Wait 60 seconds to retry')
             time.sleep(60)
+            retry = retry - 1
+            if retry == 0 :
+                return None
     return resp
 
 
