@@ -71,7 +71,7 @@ def safexe(func):
             return resp
         except HttpError as e:
             print('YouTube say HttpError , Wait 60 seconds to retry')
-            print('except: ' + e )
+            print('except: ' + str(e))
             time.sleep(60)
             if retry == 9 :
                 return None
@@ -250,8 +250,8 @@ def run17():
     
 def main():
     print('')
-    print('[ReimuOBS] Startup... ver 1.1.8  ')
-    print('[ReimuOBS] CHANGE-LOG : remove shop playlist update.')
+    print('[ReimuOBS] Startup... ver 1.1.9  ')
+    print('[ReimuOBS] CHANGE-LOG : fixup HttpError show type.')
     executors = {
         "default": ThreadPoolExecutor(50),
     }
