@@ -115,17 +115,6 @@ def runkill():
             if x['title'] in brod['snippet']['title'] and settings.shopStr in brod['snippet']['title']:
                 safexe(youtube.liveBroadcasts().transition(broadcastStatus="complete",id=brod['id'],part="snippet,status"))
 
-    for x in machinelist:
-        request = safexe(youtube.playlistItems().list(
-                part="snippet,contentDetails",
-                maxResults=50,
-                playlistId=x['l']
-            ))
-        responses = request['items']  
-        for rsp in responses:
-            safexe(youtube.playlistItems().delete(
-                id=rsp['id']
-            ))
 
 def killprocess():
     pidself = os.getpid()
